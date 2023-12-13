@@ -42,23 +42,7 @@ export default async function Home() {
             I am an enthusiastic software engineer specializing in web, back-end
             and iOS development
           </p>
-          <p>
-            With over two years of work experience, I have developed a strong
-            understanding of the associated technologies and frameworks
-          </p>
         </div>
-      </section>
-
-      {/* Achievement section */}
-      <section className="py-4 space-y-4">
-        {achievements.map((curr) => (
-          <Card key={curr.id}>
-            <div className="p-4 flex flex-col">
-              <h3 className="font-semibold text-lg">{curr.title}</h3>
-              <p className="opacity-80">{curr.description}</p>
-            </div>
-          </Card>
-        ))}
       </section>
 
       {/* Experiences section */}
@@ -75,7 +59,7 @@ export default async function Home() {
       {/* Skills section */}
       <section className="py-4 space-y-4">
         <h1 className="font-bold text-3xl">Skills</h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-8">
           {skills.map((category) => (
             <div key={category.id} className="space-y-4">
               <h1 className="font-semibold text-2xl opacity-80">
@@ -92,6 +76,19 @@ export default async function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Achievement section */}
+      <section className="py-4 space-y-4">
+        <h1 className="font-bold text-3xl">Achievement</h1>
+        {achievements.map((curr) => (
+          <Card key={curr.id}>
+            <div className="p-4 flex flex-col">
+              <h3 className="font-semibold text-lg">{curr.title}</h3>
+              <p className="opacity-80">{curr.description}</p>
+            </div>
+          </Card>
+        ))}
       </section>
 
       {/* Education section */}
