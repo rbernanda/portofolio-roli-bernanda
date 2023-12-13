@@ -1,0 +1,16 @@
+{
+    "name": "Roli Bernanda",
+    "short_name": "Roli Bernanda",
+    "description": "I am an enthusiastic software engineer specializing in web, back-end and iOS development",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "icons": [
+      {
+        "src": "/favicon.ico",
+        "sizes": "any",
+        "type": "image/x-icon"
+      }
+    ]
+  }
