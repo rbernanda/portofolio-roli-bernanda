@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 import { getPostByName, getPostsMeta } from "@/libs/mdx.server";
 import MaxWidthWrapper from "@/components/MaxwidthWrapper";
@@ -45,24 +46,27 @@ export default async function Post({ params: { slug } }: Props) {
 
   const pubDate = getFormattedDate(meta.publishedAt);
 
-  const tags = meta.tags.map((tag, i) => (
-    <Link key={i} href={`/tags/${tag}`}>
-      {tag}
-    </Link>
-  ));
-
   return (
-    <MaxWidthWrapper>
-      <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
-      <p className="mt-0 text-sm">{pubDate}</p>
+    <MaxWidthWrapper className="py-8">
+      <div>
+        {meta.publishedAt && (
+          <time
+            dateTime={pubDate}
+            className="block text-sm text-muted-foreground"
+          >
+            Published on {pubDate}
+          </time>
+        )}
+        <p className="mt-2 text-sm">{meta.readingTime.text}</p>
+        <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+          {meta.title}
+        </h1>
+      </div>
       <article className="mt-10 space-y-4">{content}</article>
-      <section className="mt-10">
-        <h3>Related:</h3>
-        <div className="flex flex-row gap-4">{tags}</div>
-      </section>
-      <p className="mb-10">
-        <Link href="/">← Back to home</Link>
-      </p>
+      <hr className="mt-12" />
+      <div className="flex justify-center py-6 lg:py-10">
+        <Link href="/blog">See all posts</Link>
+      </div>
     </MaxWidthWrapper>
   );
 }

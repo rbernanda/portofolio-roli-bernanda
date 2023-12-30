@@ -5,6 +5,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import readingTime from "reading-time";
 
 import type { BlogPost, BlogFrontmatter } from "@/types";
 
@@ -24,6 +25,7 @@ export async function getPostByName(
         mdxOptions: {
           rehypePlugins: [
             // encounter a TypeScript error when adding rehypeHighlight ignore it first
+            // https://github.com/hashicorp/next-mdx-remote/issues/423#issue-2055789404
             //@ts-ignore
             rehypeHighlight,
             rehypeSlug,
@@ -46,12 +48,15 @@ export async function getPostByName(
         description: frontmatter.description,
         tags: frontmatter.tags,
         slug: fileName.replace(".mdx", ""),
+        readingTime: readingTime(fileContents),
+        image: frontmatter.image,
       },
       content,
     };
 
     return blogPostObj;
   } catch (error) {
+    console.log(error);
     return undefined;
   }
 }
