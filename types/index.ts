@@ -1,5 +1,6 @@
 import { ReactElement, JSXElementConstructor } from "react";
 import type { StaticImageData } from "next/image";
+import { ReadTimeResults } from "reading-time";
 
 export type SocialMedia = {
   id: number;
@@ -14,6 +15,8 @@ export type BlogFrontmatter = {
   publishedAt: string;
   tags: string[];
   slug: string;
+  readingTime: ReadTimeResults;
+  image: string;
 };
 
 export type BlogPost = {

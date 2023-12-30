@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import MaxWidthWrapper from "@/components/MaxwidthWrapper";
 import { getPostsMeta } from "@/libs/mdx.server";
@@ -6,7 +7,6 @@ import { getFormattedDate } from "@/utilities";
 
 export default async function Blog() {
   const posts = await getPostsMeta();
-  console.log({ posts });
 
   return (
     <MaxWidthWrapper className="py-8">
@@ -28,26 +28,33 @@ export default async function Blog() {
               key={post.slug}
               className="group relative flex flex-col space-y-2"
             >
-              {/* {post.image && (
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={804}
-                    height={452}
-                    className="rounded-md border bg-muted transition-colors"
-                    priority={index <= 1}
-                  />
-                )} */}
+              {post.image && (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={804}
+                  height={452}
+                  className="rounded-md border bg-muted transition-colors"
+                  priority={index <= 1}
+                />
+              )}
               <h2 className="text-2xl font-extrabold">{post.title}</h2>
               {post.description && (
                 <p className="text-muted-foreground">{post.description}</p>
               )}
-              {post.publishedAt && (
+              <div className="flex gap-x-2 items-center">
+                {post.publishedAt && (
+                  <p className="text-sm text-muted-foreground">
+                    {getFormattedDate(post.publishedAt)}
+                  </p>
+                )}
+                <p>-</p>
                 <p className="text-sm text-muted-foreground">
-                  {getFormattedDate(post.publishedAt)}
+                  {post.readingTime.text}
                 </p>
-              )}
-              <Link href={`/blog/${post.slug}`} className="absolute inset-0">
+              </div>
+
+              <Link href={`blog/${post.slug}`} className="absolute inset-0">
                 <span className="sr-only">View Article</span>
               </Link>
             </article>
