@@ -4,10 +4,8 @@
 
 :root {
   --foreground: #333;
-  --background: #ebe1db;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
 }
