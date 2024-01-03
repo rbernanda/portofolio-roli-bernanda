@@ -11,7 +11,7 @@ export default async function Blog() {
   return (
     <MaxWidthWrapper className="py-8">
       <div className="flex flex-col items-start gap-4 mb-8">
-        <h1 className="iinline-block text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
+        <h1 className="inline-block text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
           Blog
         </h1>
         <p className="text-xl text-slate-700 dark:text-slate-400">
@@ -35,9 +35,15 @@ export default async function Blog() {
                   priority={index <= 1}
                 />
               )}
-              <h2 className="text-2xl font-extrabold">{post.title}</h2>
-              {post.description && <p>{post.description}</p>}
-              <div className="flex gap-x-2 items-center">
+              <h2 className="inline-block text-2xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
+                {post.title}
+              </h2>
+              {post.description && (
+                <p className="text-lg text-slate-700 dark:text-slate-400">
+                  {post.description}
+                </p>
+              )}
+              <div className="flex gap-x-2 items-center text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400">
                 {post.publishedAt && (
                   <p className="text-sm">
                     {getFormattedDate(post.publishedAt)}

@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           openSans.className,
-          "antialiased bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 transition-colors duration-500"
+          "antialiased text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 transition-colors duration-500"
         )}
       >
         <NextTopLoader showSpinner={false} />
