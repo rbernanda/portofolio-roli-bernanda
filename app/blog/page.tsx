@@ -30,8 +30,8 @@ export default async function Blog() {
                   src={post.image}
                   alt={post.title}
                   width={804}
-                  height={452}
-                  className="rounded-md border transition-colors"
+                  height={240}
+                  className="rounded-md border transition-colors object-cover object-center sm:h-60"
                   priority={index <= 1}
                 />
               )}
