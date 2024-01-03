@@ -61,7 +61,7 @@ export default async function Post({ params: { slug } }: Props) {
           {meta.readingTime.text}
         </p>
       </div>
-      <article className="mt-10 space-y-4 text-slate-700 dark:text-slate-400">
+      <article className="prose mt-4 max-w-full transition-colors dark:prose-invert">
         {content}
       </article>
       <div className="flex justify-center py-6 lg:py-10 hover:text-sky-500">
