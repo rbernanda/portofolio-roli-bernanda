@@ -31,7 +31,7 @@ export default async function Blog() {
                   alt={post.title}
                   width={804}
                   height={240}
-                  className="rounded-md border transition-colors object-cover object-center sm:h-60"
+                  className="rounded-md border transition-colors object-cover object-center h-60"
                   priority={index <= 1}
                 />
               )}
