@@ -1,5 +1,7 @@
-import MaxWidthWrapper from "./MaxwidthWrapper";
 import Link from "next/link";
+
+import MaxWidthWrapper from "./MaxwidthWrapper";
+import ThemeSwitch from "./ThemeSwitch";
 
 const links = [
   { href: "/", label: "Home" },
@@ -8,22 +10,25 @@ const links = [
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 transition-shadow shadow-sm">
+    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
       <MaxWidthWrapper>
-        <nav className="bg-white flex justify-between items-center transition-colors py-4">
-          <ul className="flex items-center space-x-3 text-xs md:space-x-4 md:text-base">
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="rounded-sm py-2 transition-colors font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
-                >
-                  <span>{label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="flex justify-between items-center py-6">
+          <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
+            <ul className="flex space-x-8">
+              {links.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="hover:text-sky-500 dark:hover:text-sky-400"
+                  >
+                    <span>{label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ThemeSwitch />
+        </div>
       </MaxWidthWrapper>
     </header>
   );

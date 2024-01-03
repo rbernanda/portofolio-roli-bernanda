@@ -63,8 +63,7 @@ export default async function Post({ params: { slug } }: Props) {
         </h1>
       </div>
       <article className="mt-10 space-y-4">{content}</article>
-      <hr className="mt-12" />
-      <div className="flex justify-center py-6 lg:py-10">
+      <div className="flex justify-center py-6 lg:py-10 hover:text-sky-500">
         <Link href="/blog">See all posts</Link>
       </div>
     </MaxWidthWrapper>

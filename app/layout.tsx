@@ -5,6 +5,8 @@ import NextTopLoader from "nextjs-toploader";
 
 import { DEFAULT_METADATA } from "@/configs/seo";
 import Navbar from "@/components/Navbar";
+import { ThemeProviders } from "@/components/ThemeProvider";
+import cn from "@/libs/cn";
 
 const openSans = Poppins({
   subsets: ["latin"],
@@ -20,12 +22,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body
+        className={cn(
+          openSans.className,
+          "antialiased bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 transition-colors duration-500"
+        )}
+      >
         <NextTopLoader showSpinner={false} />
-        <main>
-          <Navbar />
-          {children}
-        </main>
+        <ThemeProviders>
+          <main>
+            <Navbar />
+            {children}
+          </main>
+        </ThemeProviders>
       </body>
     </html>
   );

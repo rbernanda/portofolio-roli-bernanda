@@ -10,23 +10,20 @@ export default async function Blog() {
 
   return (
     <MaxWidthWrapper className="py-8">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-        <div className="flex-1 space-y-4">
-          <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-            Blog
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            A blog built using MDX-Remote. Posts are written in MDX.
-          </p>
-        </div>
+      <div className="flex flex-col items-start gap-4 mb-8">
+        <h1 className="iinline-block text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
+          Blog
+        </h1>
+        <p className="text-xl text-slate-700 dark:text-slate-400">
+          A blog built using MDX-Remote. Posts are written in MDX.
+        </p>
       </div>
-      <hr className="my-8" />
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (
             <article
               key={post.slug}
-              className="group relative flex flex-col space-y-2"
+              className="relative flex flex-col space-y-2"
             >
               {post.image && (
                 <Image
@@ -34,24 +31,20 @@ export default async function Blog() {
                   alt={post.title}
                   width={804}
                   height={452}
-                  className="rounded-md border bg-muted transition-colors"
+                  className="rounded-md border transition-colors"
                   priority={index <= 1}
                 />
               )}
               <h2 className="text-2xl font-extrabold">{post.title}</h2>
-              {post.description && (
-                <p className="text-muted-foreground">{post.description}</p>
-              )}
+              {post.description && <p>{post.description}</p>}
               <div className="flex gap-x-2 items-center">
                 {post.publishedAt && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm">
                     {getFormattedDate(post.publishedAt)}
                   </p>
                 )}
                 <p>-</p>
-                <p className="text-sm text-muted-foreground">
-                  {post.readingTime.text}
-                </p>
+                <p className="text-sm">{post.readingTime.text}</p>
               </div>
 
               <Link href={`blog/${post.slug}`} className="absolute inset-0">
