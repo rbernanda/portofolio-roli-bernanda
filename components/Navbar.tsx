@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
       <MaxWidthWrapper>
-        <div className="flex justify-between py-5 items-center">
+        <div className="flex justify-between py-4 items-center">
           <nav className="leading-6 font-semibold text-slate-700 dark:text-slate-200">
             <ul className="flex space-x-4 sm:space-x-8 items-center">
               <li>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 const SITE_DESCRIPTION =
-  "I am an enthusiastic software engineer specializing in web, back-end and iOS development";
+  "I specialize in TypeScript, React, and Web Performance Optimization.";
 
 const SITE_TITLE = "Roli Bernanda";
 
@@ -9,12 +9,12 @@ export const DEFAULT_METADATA: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   keywords: [
-    "ios engineer",
+    "Typescript",
     "backend developer",
     "frontend developer",
     "react developer",
     "software engineer",
-    "mobile developer",
+    "Javascript",
   ],
   manifest: `/manifest.json`,
   category: "blog",

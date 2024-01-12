@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 import { getPostByName, getPostsMeta } from "@/libs/mdx.server";
 import MaxWidthWrapper from "@/components/MaxwidthWrapper";

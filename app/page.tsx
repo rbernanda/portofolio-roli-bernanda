@@ -1,12 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import MaxWidthWrapper from "@/components/MaxwidthWrapper";
-import { getSocialMedia } from "@/services/socialMedia";
 
 export default async function Home() {
-  const socialMedia = await getSocialMedia();
-
   return (
     <MaxWidthWrapper className="py-8">
       <section className="min-h-main mb-20 flex flex-col justify-center fade-in-start">
@@ -14,7 +10,7 @@ export default async function Home() {
           Hi, I&apos;m <strong>Roli Bernanda</strong>
         </h1>
         <p className="mt-4 md:text-lg 2xl:text-xl">
-          I&apos;m a software engineer specializing in Javascript Ecosystem
+          I specialize in TypeScript, React, and Web Performance Optimization.
         </p>
 
         <p className="mt-4 md:text-lg 2xl:text-xl">
@@ -25,18 +21,6 @@ export default async function Home() {
             Read more →
           </Link>
         </p>
-        {/* <div className="flex space-x-4 mt-4">
-          {socialMedia.map((social) => (
-            <Link key={social.id} href={social.href} target="_blank">
-              <Image
-                src={social.icon}
-                alt={social.name}
-                width={32}
-                height={40}
-              />
-            </Link>
-          ))}
-        </div> */}
       </section>
     </MaxWidthWrapper>
   );

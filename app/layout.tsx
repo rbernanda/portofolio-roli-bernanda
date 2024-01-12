@@ -49,7 +49,7 @@ export default function RootLayout({
       >
         <NextTopLoader showSpinner={false} />
         <ThemeProviders>
-          <main>
+          <main className="min-h-screen">
             <Navbar />
             {children}
           </main>
